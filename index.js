@@ -11,5 +11,6 @@ handle['/start'] = requestHandlers.start;
 handle['/upload'] = requestHandlers.upload;
 handle['/start2'] = requestHandlers.start2;
 handle['/show'] = requestHandlers.show;
+handle['/reports/invoicedatadetailreport'] = requestHandlers.invoicedatadetailreport;
 
 server.start(router.route, handle);
