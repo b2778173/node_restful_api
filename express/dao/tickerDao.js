@@ -16,13 +16,13 @@ async function createTicker(name, marketCap, price) {
     });
     const result = await ticker.save();
     // console.log('createTicker successfully ', colors.yellow(result));
-    return `createTicker successfully  ${result}`;
+    return result;
 }
 
-async function updateTicker(name, data) {
-    const result = await Ticker.update({ name }, data);
-    console.log('update result', result);
-    return result;
+function updateTicker(name, data) {
+    // const result = await Ticker.update({ name }, data);
+    // console.log('update result', result);
+    return Ticker.update({ name }, data);
 }
 
 module.exports = { createTicker, updateTicker };

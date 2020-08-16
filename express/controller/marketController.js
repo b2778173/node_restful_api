@@ -2,7 +2,8 @@ const marketService = require('../service/marketService');
 
 const marketSummary = async(req, res) => {
     try {
-        res.send(await marketService.getSummary());
+        const response = await marketService.getSummary()
+        res.send(response);
     } catch (err) {
         console.log(err.message);
         res.status(500).send(err);
@@ -10,7 +11,8 @@ const marketSummary = async(req, res) => {
 };
 const popular = async(req, res) => {
     try {
-        res.send(await marketService.getPopular());
+        const response = await marketService.getPopular()
+        res.send(response);
     } catch (err) {
         console.log(err.message);
         res.status(500).send(err);
