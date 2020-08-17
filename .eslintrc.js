@@ -10,7 +10,7 @@ module.exports = {
         ecmaVersion: 11,
     },
     rules: {
-        'prettier/prettier': 0, // 表示被prettier标记的地方抛出错误信息。
+        'prettier/prettier': ['warn'], // 表示被prettier标记的地方抛出错误信息。
         'func-names': ['warn', 'never'],
         'no-console': 'off',
         'space-before-function-paren': 0,
