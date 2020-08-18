@@ -1,6 +1,6 @@
 const tickerService = require('../service/tickerService');
 
-const createTicker = async(req, res) => {
+const createTicker = async (req, res) => {
     const { name, marketCap, price } = req.body;
     try {
         if (!name) {
@@ -23,8 +23,7 @@ const createTicker = async(req, res) => {
     }
 };
 
-
-const updateTicker = async(req, res) => {
+const updateTicker = async (req, res) => {
     const { name, data } = req.body;
     try {
         const response = await tickerService.updateTicker(name, data);
@@ -37,5 +36,5 @@ const updateTicker = async(req, res) => {
 
 module.exports = {
     createTicker,
-    updateTicker
+    updateTicker,
 };

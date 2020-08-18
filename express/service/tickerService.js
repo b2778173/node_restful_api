@@ -2,7 +2,6 @@
 const tickerDao = require('../dao/tickerDao');
 
 async function createTicker(name, marketCap, price) {
-
     const result = tickerDao.createTicker(name, marketCap, price);
     // console.log(colors.yellow(await tickerDao.createTicker(name, marketCap, price)))
     // console.log(colors.yellow('result=', result))

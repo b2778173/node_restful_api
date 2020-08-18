@@ -1,7 +1,7 @@
 const express = require('express');
 const colors = require('colors');
 const bodyParser = require('body-parser');
-const { marketSummary, popular } = require('../controller/marketController');
+const { marketSummary, popular, autocomplete } = require('../controller/marketController');
 const { createTicker, updateTicker } = require('../controller/tickerController');
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     // Put some preprocessing here.
     console.log(colors.yellow('request from ', req.url));
     if (req.method === 'POST') {
@@ -30,5 +30,7 @@ app.post('/api/updateTicker', updateTicker);
 app.get('/api/summary', marketSummary);
 
 app.get('/api/popular', popular);
+
+app.get('/api/autocomplete', autocomplete);
 
 module.exports = app;
