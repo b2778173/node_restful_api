@@ -8,7 +8,7 @@ const Ticker = mongoose.model(
         price: Number,
     })
 );
-async function createTicker(name, marketCap, price) {
+async function createTicker (name, marketCap, price) {
     const ticker = new Ticker({
         name,
         marketCap,
@@ -19,10 +19,13 @@ async function createTicker(name, marketCap, price) {
     return result;
 }
 
-function updateTicker(name, data) {
+function updateTicker (name, data) {
     // const result = await Ticker.update({ name }, data);
     // console.log('update result', result);
     return Ticker.update({ name }, data);
 }
 
-module.exports = { createTicker, updateTicker };
+module.exports = {
+    createTicker,
+    updateTicker,
+};
