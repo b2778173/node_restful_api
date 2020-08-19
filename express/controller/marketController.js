@@ -1,6 +1,6 @@
 const marketService = require('../service/marketService');
 
-const marketSummary = async (req, res) => {
+const marketSummary = async(req, res) => {
     try {
         const response = await marketService.getSummary();
         res.send(response);
@@ -9,7 +9,7 @@ const marketSummary = async (req, res) => {
         res.status(500).send(err);
     }
 };
-const popular = async (req, res) => {
+const popular = async(req, res) => {
     try {
         const response = await marketService.getPopular();
         res.send(response);
@@ -18,7 +18,7 @@ const popular = async (req, res) => {
         res.status(500).send(err);
     }
 };
-const autocomplete = async (req, res) => {
+const autocomplete = async(req, res) => {
     try {
         const response = await marketService.autocomplete(req.query.query);
         res.send(response);
