@@ -1,6 +1,6 @@
 const request = require('../util/req');
 
-const getSummary = () => {
+function getSummary() {
     const req = request('GET', '/v6/finance/quote/marketSummary', {
         lang: 'en',
         region: 'US',
@@ -9,7 +9,7 @@ const getSummary = () => {
     return req;
 };
 
-const getPopular = () => {
+function getPopular() {
     const req = request('GET', '/ws/screeners/v1/finance/screener/predefined/saved', {
         count: '25',
     });
@@ -17,7 +17,7 @@ const getPopular = () => {
     return req;
 };
 
-const autocomplete = (symbol) => {
+function autocomplete(symbol) {
     const req = request('GET', `/v6/finance/autocomplete`, {
         lang: 'en',
         region: 'US',
@@ -27,8 +27,17 @@ const autocomplete = (symbol) => {
     return req;
 };
 
+function news(symbols) {
+    const req = request('GET', `/v2/finance/news`, {
+        symbols
+    });
+
+    return req;
+};
+
 module.exports = {
     getSummary,
     getPopular,
     autocomplete,
+    news
 };
