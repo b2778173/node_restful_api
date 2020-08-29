@@ -1,6 +1,6 @@
-const tickerService = require('../service/tickerService');
+const stockService = require('../service/stockService');
 
-const createTicker = async (req, res) => {
+async function createTicker(req, res) {
     const { name, marketCap, price } = req.body;
     try {
         if (!name) {
@@ -15,26 +15,38 @@ const createTicker = async (req, res) => {
             res.status(400).send('price is required');
             return;
         }
-        const response = await tickerService.createTicker(name, marketCap, price);
+        const response = await stockService.createTicker(name, marketCap, price);
         res.send(response);
     } catch (err) {
         console.log(err.message);
         res.status(500).send(err);
     }
-};
+}
 
-const updateTicker = async (req, res) => {
+async function updateTicker(req, res) {
     const { name, data } = req.body;
     try {
-        const response = await tickerService.updateTicker(name, data);
+        const response = await stockService.updateTicker(name, data);
         res.send(response);
     } catch (err) {
         console.log(err.message);
         res.status(500).send(err);
     }
-};
+}
+
+async function getStockProfile(req, res) {
+    try {
+        // console.log(req.query.symbol)
+        const response = await stockService.getStockProfile(req.query.symbol);
+        res.send(response);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send(err);
+    }
+}
 
 module.exports = {
     createTicker,
     updateTicker,
+    getStockProfile
 };

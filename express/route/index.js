@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
 
 app.use('/api/market', market)
-app.use('/api/ticker', ticker)
+app.use('/api/stock', ticker)
 
 app.use(function(req, res, next) {
     // Put some preprocessing here.
