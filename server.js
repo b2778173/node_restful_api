@@ -21,9 +21,9 @@ function start(route, handle) {
     console.log('request from', pathname, 'revieced !');
     route(handle, pathname, response, request);
   }
-  http.createServer(onRequest).listen(8888);
+  http.createServer(onRequest).listen(8080);
   console.log('\x1b[42m', '\x1b[30msuccess \x1b[0m', 'Server has started.');
-  console.log(colors.blue('listing at part 8888...'));
+  console.log(colors.blue('listing at port 8080...'));
   // console.log('Server  has started.'.info);
 }
 // module.exports = start;
